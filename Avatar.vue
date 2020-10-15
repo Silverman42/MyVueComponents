@@ -1,14 +1,15 @@
 <template>
-    <figure class="overflow-hidden rounded-full border-4 bg-primary-100" :class="{md:size == 'md',lg:size == 'lg',sm:size == 'sm'}">
-        <div v-if="src == ''" class="flex items-center justify-center" :class="{md:size == 'md',lg:size == 'lg',sm:size == 'sm'}" :src="`${filePath}${src}`" :alt="alt">
-            <img style="width: 50%; height: auto" :src="`${filePath}user.svg`" :alt="alt">
+    <figure class="overflow-hidden rounded-full bg-primaryBg-300" :class="{md:size == 'md',lg:size == 'lg',sm:size == 'sm'}">
+        <div v-if="src == ''" class="flex items-center justify-center w-full h-full"   >
+            <iconify-icon :width="defaultAvatarSize" :height="defaultAvatarSize" :icon="user" />
         </div>
-        <img v-else class="block" :class="{md:size == 'md',lg:size == 'lg',sm:size == 'sm'}" :src="`${filePath}${src}`" :alt="alt">
+        <img v-else class="block object-center object-fill" :class="{md:size == 'md',lg:size == 'lg',sm:size == 'sm'}" :src="`${src}`" :alt="alt">
     </figure>
 </template>
 
 <script>
-    import {FILES,BASEURL} from '../api_endpoint'
+    // import {FILES,BASEURL} from '../api_endpoint'
+    import user from '@iconify/icons-feather/user'
     export default {
         props:{
             src: {
@@ -23,17 +24,24 @@
         },
         data(){
             return{
-                filePath: BASEURL+FILES.AVATAR
+                user
+            }
+        },
+        computed:{
+            defaultAvatarSize(){
+                if(this.size === 'sm') return 20
+                if(this.size === 'md') return 40
+                if(this.size === 'lg') return 70
             }
         }
     }
 </script>
 <style scoped>
     .lg{
-        @apply w-56 h-56;
+        @apply w-40 h-40;
     }
     .md{
-        @apply w-32 h-32;
+        @apply w-20 h-20;
     }
     .sm{
         @apply w-10 h-10;

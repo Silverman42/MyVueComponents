@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
     .container{
-        @apply inline-block w-auto mr-2;
+        @apply inline-block w-auto mr-2 cursor-pointer;
     }
     .container:last-child{
         @apply mr-0;
@@ -44,14 +44,14 @@ export default {
         @apply hidden h-0 w-0;
     }
     .background{
-        @apply inline-flex rounded-md h-12 w-auto px-4 items-center overflow-hidden bg-primaryBg-200;
+        @apply inline-flex rounded-md h-12 w-auto px-4 items-center overflow-hidden bg-gray-400;
         @apply transition-all duration-300 ease-in-out;
     }
     .radio:checked~.background{
-        @apply bg-primary-600
+        @apply bg-gray-800
     }
     .tick{
-        @apply w-3 h-3 border-2 rounded-full inline-block mr-2 border-primaryBg-400;
+        @apply w-3 h-3 border-2 rounded-full inline-block mr-2 border-gray-600;
         @apply transition-all duration-300 ease-in-out;
     }
     .radio:checked~.background>.tick{

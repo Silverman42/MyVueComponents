@@ -30,11 +30,30 @@ export default {
             default: false
         }
     },
+    data(){
+        return {
+            body: document.querySelector('body')
+        }
+    },
+    watch:{
+        isOpen(newValue, oldValue){
+            if(newValue === true){
+                return this.hideScrollBar()
+            }
+            return this.showScrollBar()
+        }
+    },
     methods:{
         closeModal(){
             if(this.deactivateCloseBtn === false){
                 return this.$emit('update:isOpen',false)
             }
+        },
+        hideScrollBar(){
+            this.body.classList.add('overflow-y-hidden')
+        },
+        showScrollBar(){
+            this.body.classList.remove('overflow-y-hidden')
         }
     },
     mounted(){

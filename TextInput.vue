@@ -2,8 +2,8 @@
     <div>
         <label class="text-xs mb-1 flex w-full items-center justify-between" :for="id">
             <p class="text-sm">{{label}}</p>
-            <div class="inline-block w-auto">
-                <slot name="detail"></slot>
+            <div class="inline-block text-right w-auto">
+                <slot></slot>
             </div>
         </label>
         <input ref="input" v-bind="$attrs" :value="value" @input="input($event)" class="appearance-none block w-full bg-primaryBg-200 text-black border border-primaryBg-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-primaryBg-300 focus:border-primary-400 h-12" :id="id" :type="type">
